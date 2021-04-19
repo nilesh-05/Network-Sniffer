@@ -3,8 +3,11 @@ import struct
 import textwrap
 
 
-def get_mac_addr(src_mac):
-    pass
+# return formatted mac address
+def get_mac_addr(bytes_addr):
+    bytes_str = map('{:02x}'.format, bytes_addr)
+    mac_addr = ':'.join(bytes_str).upper()
+    return mac_addr
 
 
 # unpack ethernet frame

@@ -37,6 +37,7 @@ def ipv4(data):
     header_length = (version_header_len & 15) * 4
     # length of header is important because after header, the data starts. helpful in reading data
     ttl, protocol, src, target = struct.unpack('! 8x B B 2x 4s', data[:20])
+    # x - pad bytes, B - unsigned char, s - char[], H - short
     return version, header_length, ttl, protocol, ipv4_format(src), ipv4_format(target), data[header_length:]
 
 
